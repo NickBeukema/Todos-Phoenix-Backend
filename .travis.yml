@@ -1,0 +1,17 @@
+language: elixir
+elixir:
+- 1.2
+otp_release:
+- 18.2
+sudo: false
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database app_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: ZEI1NDPDNOxJ2lRJvEqA+Ony7d0EJruwK0toDe6ooGXDHpC4nNXe1Zxq3El5L5e6emKikPk0RulBGuVjEh61jvx19B1l5LBx+VGxaa7fcyCIh7zniF7PbqkgWQ0pbmjooygD5AoRK6yuNIYGmv12mlTAmK6i5LLmdDQqsi/7OBfJ/A7ktQy5cmi6ifS6Vtg+vhCTu7cMHRypAyWKIouCVB9ApPBopcoBDUe55QK9hVkE5f7ueLLQRh7njgWHPqx4sHV+ExLDYMMlOESBYkOAKJ1OVovQS2F66bBN7Vu+n1e32sBlHcEpb0B4BBfhIpYUsTzwBGMi9YINNiOvONPqVAyJrne31E23sZqINjQfnuiqikdNhM83ZmzixPDuNHODw0MDn+mY3pxtg+WoDYldcV+3ncq5qnE85tqW7UvUJXXIUHHxT5YeeW+ma/PbOf/Lne7qLpOPuFFsLUJbt854TOX/M3x7qoqkmwp1D1ZnIJ8gHmzdm1qxohxj2naVXkLMYcbLk42UgXJ4kFXk2I6nRkK/8z3PPzesQjittNoqCJFfU0nvEANzCBqUCe7v/v6zSCdhOrnvg8zZJZwn7EROfGvlwp95TNxCejNS96sbR/1s++i4zuiuQ37X+MV9wqR9s+6XzFhcUuAOAE9VnT/cfWrPoXBpV2HqtRe+SY0BuB8=
+  app: todos-phoenix-backend
+  on:
+    repo: NickBeukema/Todos-Phoenix-Backend
